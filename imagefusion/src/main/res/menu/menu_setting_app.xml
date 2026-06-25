@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_help"
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:title="帮助" />
+
+    <item
+        android:id="@+id/item_more"
+        android:title="更多"
+        android:orderInCategory="2"
+        app:showAsAction="always"/>
+</menu>

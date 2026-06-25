@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+include ':dance'
+include ':hms'
+include ':common'
+include ':customView'
+include ':mindsporelibrary'
+include ':imageObject'
+include ':styletransfer'
+include ':custommodel'
+include ':imagefusion'
+include ':app'
+rootProject.name = "MindSpore"

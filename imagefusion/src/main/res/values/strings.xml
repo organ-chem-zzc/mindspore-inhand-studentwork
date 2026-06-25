@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_image_fusion">图片融合</string>
+    <string name="hint_select_images">选择图片开始融合</string>
+    <string name="btn_select_user_image">选择图片</string>
+    <string name="btn_fusion">融合</string>
+    <string name="btn_save">保存</string>
+    <string name="label_user_image">用户图片</string>
+    <string name="label_preset_images">预设图片</string>
+    <string name="hint_no_user_image">未选择图片</string>
+    <string name="toast_select_user_image">请先选择用户图片</string>
+    <string name="toast_select_preset_image">请选择预设图片</string>
+    <string name="toast_fusion_success">融合成功</string>
+    <string name="toast_fusion_failed">融合失败</string>
+    <string name="toast_save_success">保存成功</string>
+    <string name="toast_no_result">没有可保存的结果</string>
+    <string name="toast_model_running">模型正在运行中</string>
+    <string name="explain_title">简要说明</string>
+</resources>

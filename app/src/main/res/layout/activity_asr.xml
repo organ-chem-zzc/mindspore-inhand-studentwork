@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <!-- 顶部工具栏 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/asr_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@drawable/icon_back"
+        app:title="@string/title_asr"
+        app:titleTextColor="@color/black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_gray" />
+
+    <!-- 录音区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="16dp">
+
+        <!-- 录音按钮 -->
+        <Button
+            android:id="@+id/btn_asr_record"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/btn_head_experience"
+            android:gravity="center"
+            android:text="@string/asr_record_start"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <!-- 录音状态 -->
+        <TextView
+            android:id="@+id/tv_asr_record_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/asr_ready"
+            android:textColor="@color/text_gray"
+            android:textSize="13sp" />
+
+        <!-- 录音时长 -->
+        <TextView
+            android:id="@+id/tv_asr_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="00:00"
+            android:textColor="@color/text_black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- 音量指示器 -->
+        <ProgressBar
+            android:id="@+id/progress_asr_volume"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:max="32767"
+            android:progress="0"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- 导入音频按钮 -->
+    <Button
+        android:id="@+id/btn_asr_import"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_small_item"
+        android:gravity="center"
+        android:text="@string/asr_import_audio"
+        android:textAllCaps="false"
+        android:textColor="@drawable/btn_small_item_text_color"
+        android:textSize="14sp" />
+
+    <!-- 识别结果标题 + 字数 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/asr_result_label"
+            android:textColor="@color/text_black"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_asr_word_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 字"
+            android:textColor="@color/text_gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- 识别结果文本区 -->
+    <EditText
+        android:id="@+id/et_asr_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/gray_btn"
+        android:gravity="top|start"
+        android:hint="@string/asr_result_hint"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColor="@color/text_black"
+        android:textColorHint="@color/text_gray"
+        android:textSize="14sp" />
+
+    <!-- 操作按钮 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_asr_copy"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/asr_copy"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btn_asr_tts"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_head_experience"
+            android:gravity="center"
+            android:text="@string/asr_to_tts"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btn_asr_clear"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/tts_clear"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- 状态栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ProgressBar
+            android:id="@+id/asr_progress"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_asr_status"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/asr_ready"
+            android:textColor="@color/text_gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

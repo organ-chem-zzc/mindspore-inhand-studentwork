@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <!-- 顶部工具栏 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/sr_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@drawable/icon_back"
+        app:title="@string/title_super_resolution"
+        app:titleTextColor="@color/black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_gray" />
+
+    <!-- 功能按钮区域（第一行：选图） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="14dp">
+
+        <Button
+            android:id="@+id/btn_sr_select_photo"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/sr_select_photo"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_sr_take_photo"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/sr_take_photo"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_sr_select_model"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/sr_select_model"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 功能按钮区域（第二行：操作） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btn_sr_upscale"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_head_experience"
+            android:gravity="center"
+            android:text="@string/sr_upscale"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_sr_reset"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/sr_reset"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_sr_save"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/sr_save"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 对比展示区域 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/gray_btn">
+
+        <!-- 对比 View（有图片后显示） -->
+        <com.mindspore.himindspore.ui.superresolution.SuperResolutionResultView
+            android:id="@+id/sr_result_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 占位文字（无图片时显示） -->
+        <TextView
+            android:id="@+id/tv_sr_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="@string/sr_placeholder"
+            android:textColor="@color/text_gray"
+            android:textSize="15sp" />
+
+        <!-- 加载动画 -->
+        <ProgressBar
+            android:id="@+id/sr_progress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/progressbar"
+            android:visibility="gone" />
+
+        <!-- 模型状态标签 -->
+        <TextView
+            android:id="@+id/tv_sr_model_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:padding="6dp"
+            android:text="@string/sr_model_not_loaded"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <!-- 耗时信息面板 -->
+    <LinearLayout
+        android:id="@+id/panel_sr_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sr_benchmark_title"
+            android:textColor="@color/text_black"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_sr_benchmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

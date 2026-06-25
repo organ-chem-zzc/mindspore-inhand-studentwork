@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <!-- 顶部工具栏 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:title="@string/title_image_fusion"
+        app:titleTextColor="@color/black" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_gray" />
+
+    <!-- 结果图片展示区域 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="265dp"
+        android:background="@color/gray_btn">
+
+        <ImageView
+            android:id="@+id/img_result"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="@string/hint_select_images"
+            android:textAllCaps="false"
+            android:textColor="@color/text_gray"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <!-- 功能按钮区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_select_user_image"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/btn_select_user_image"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_fusion"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/btn_fusion"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_small_item"
+            android:gravity="center"
+            android:text="@string/btn_save"
+            android:textAllCaps="false"
+            android:textColor="@drawable/btn_small_item_text_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 用户选择的图片预览 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_user_image"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/gray_btn">
+
+        <ImageView
+            android:id="@+id/img_user_preview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_user_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/hint_no_user_image"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+    <!-- 预设图片选择区域 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/label_preset_images"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_presets"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbarThumbVertical="@color/gray"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
